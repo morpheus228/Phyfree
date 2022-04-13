@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'orders'
 ]
 
 MIDDLEWARE = [
@@ -75,9 +77,12 @@ WSGI_APPLICATION = 'phyfree.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'phyfree_db',
+        'USER': 'admin',
+        'PASSWORD': '1239',
+        'HOST': '127.0.0.1',
+        'PORT': '5432'}
 }
 
 
