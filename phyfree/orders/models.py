@@ -40,7 +40,7 @@ class Order(models.Model):
     PRICE_CHOICES = zip(range(50, 10001, 50), range(50, 10001, 50))
     price = models.IntegerField(choices=PRICE_CHOICES, null=False)
 
-    STATUS_CHOICES = enumerate(["CREATED", "AVAILABLE", "ACTIVE", "COMPLETED", "ERROR"])
+    STATUS_CHOICES = enumerate(["PUBLISHED", "ACTIVE", "COMPLETED", "ERROR"])
     status = models.IntegerField(choices=STATUS_CHOICES, default=0)
 
     class Meta:

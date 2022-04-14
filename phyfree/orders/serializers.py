@@ -5,7 +5,7 @@ from .models import Order, User
 class OrderListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ('id', 'title', 'description', 'price', 'employer', 'employee')
+        fields = ('id', 'title','employer', 'employee', 'status')
 
 
 class OrderDetailSerializer(serializers.ModelSerializer):
@@ -13,7 +13,7 @@ class OrderDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        exclude = ["id"]
+        fields = "__all__"
 
 
 class OrderCreateSerializer(serializers.ModelSerializer):
@@ -21,11 +21,10 @@ class OrderCreateSerializer(serializers.ModelSerializer):
         model = Order
         fields = ['employer', 'title', 'description', 'location', 'price']
 
-
-class UserDetailSerializer(serializers.ModelSerializer):
-    created_orders = OrderDetailSerializer(many=True)
-
-    class Meta:
-        model = User
-        fields = "__all__"
+# class UserDetailSerializer(serializers.ModelSerializer):
+#     created_orders = OrderDetailSerializer(many=True)
+#
+#     class Meta:
+#         model = User
+#         fields = "__all__"
 
